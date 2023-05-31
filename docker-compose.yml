@@ -1,0 +1,14 @@
+version: '3'
+services:
+  kaze-dsbot-image:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kaze-dsbot-image:latest
+    container_name: kaze-dsbot-container
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
