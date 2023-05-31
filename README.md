@@ -1,6 +1,7 @@
 # Kaze - Discord Bot Project
 
-Welcome to Kaze - Discord Bot Project! This project is a Discord bot built using JavaScript and utilizes Docker and Docker Compose for containerization. It aims to provide a modular and easily extendable solution for Discord bot development.
+Welcome to Kaze - Discord Bot Project!
+This project is a Discord bot built using JavaScript, Docker and Docker Compose for containerization. It aims to provide a modular and easily extendable solution for Discord bot development.
 
 
 ## Table of Contents
