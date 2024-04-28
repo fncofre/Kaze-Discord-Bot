@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const logger = require('../utils/logger');
+const { Collection } = require('discord.js');
 
-const commandsPath = path.join(__dirname, '../commands/prefix');
+const commandsPath = path.join(__dirname, '../commands/utility');
 
-class CommandService {
+class InteractionService {
     constructor() {
-        this.commands = new Map();
+        this.commands = new Collection();
     }
 
     /**
@@ -14,7 +15,7 @@ class CommandService {
      */
     loadCommands() {
         logger.info("====================")
-        logger.info("Loading commands ...")
+        logger.info("Loading slash commands ...")
 
         const commandFiles = fs
             .readdirSync(commandsPath)
@@ -24,15 +25,15 @@ class CommandService {
             const commandFilePath = path.join(commandsPath, file);
             const command = require(commandFilePath);
 
-            if (command.name && command.execute) {
-                this.commands.set(command.name, command);
-                logger.info(`Loaded command: ${command.name}`);
+            if (command.data && command.execute) {
+                this.commands.set(command.data.name, command);
+                logger.info(`Loaded slash command: ${command.data.name}`);
             } else {
-                logger.warn(`Invalid command file: ${commandFilePath}`);
+                logger.warn(`Invalid slash command file: ${commandFilePath}`);
             }
         }
 
-        logger.info(`Loaded ${this.commands.size} commands.`);
+        logger.info(`Loaded ${this.commands.size} slash commands.`);
         logger.info("====================")
     }
 
@@ -58,4 +59,4 @@ class CommandService {
     }
 }
 
-module.exports = new CommandService();
+module.exports = new InteractionService();
