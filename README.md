@@ -6,14 +6,18 @@ This project is a Discord bot built using JavaScript, Docker and Docker Compose 
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [License](#license)
+- [Kaze - Discord Bot Project](#kaze---discord-bot-project)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Features](#features)
+  - [Work in Progress](#work-in-progress)
+  - [To-Do](#to-do)
+  - [Project Structure](#project-structure)
+  - [Contributing](#contributing)
+  - [Credits](#credits)
+  - [License](#license)
 
 
 ## Project Overview
@@ -82,18 +86,27 @@ The project follows the following directory structure:
 ├── README.md
 ├── src
 │   ├── commands
-│   │   └── ping.js
+│   │   ├── prefix
+│   │   │   └── ping.js
+│   │   └── utility
+│   │       ├── ping.js
+│   │       ├── server.js
+│   │       └── user.js
 │   ├── config
 │   │   └── prefixConfig.json
 │   ├── controllers
 │   │   ├── commandController.js
 │   │   └── eventController.js
+│   │   └── interactionController.js
 │   ├── handlers
 │   │   ├── commandHandler.js
 │   │   └── eventHandler.js
+│   │   └── interactionHandler.js
+│   ├── deploy-commands.js
 │   ├── index.js
 │   ├── services
 │   │   └── commandService.js
+│   │   └── interactionService.js
 │   └── utils
 │       ├── logger.js
 │       └── logs
